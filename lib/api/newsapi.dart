@@ -1,14 +1,3 @@
-class Comment {
-  String text = "";
-  final int commentId;
-  Story story;
-  Comment({this.commentId, this.text});
-
-  factory Comment.fromJSON(Map<String, dynamic> json) {
-    return Comment(commentId: json["id"], text: json["text"]);
-  }
-}
-
 class Story {
   final String title;
   final String url;

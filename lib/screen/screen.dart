@@ -42,10 +42,7 @@ class _TopArticleListState extends State<TopArticleList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Hacker News"),
-          backgroundColor: Colors.orange,
-        ),
+        appBar: AppBar(title: Text("Hacker News"), backgroundColor: Colors.red),
         body: ListView.builder(
             itemCount: _stories.length,
             itemBuilder: (_, index) {
@@ -90,12 +87,23 @@ class _TopArticleListState extends State<TopArticleList> {
                     )),
                     Container(
                       padding: EdgeInsets.only(top: 6.0),
-                      child: Text(
-                        "By ${_stories[index].by != null ? _stories[index].by : 'unknown'} - ${timeago.format(date)}",
-                        style: TextStyle(
-                            // fontWeight: FontWeight.w700,
-                            fontSize: 15.0,
-                            color: Colors.grey),
+                      child: Row(
+                        children: [
+                          Text(
+                            "${_stories[index].commentIds.length} Comments\t\t ",
+                            style: TextStyle(
+                                // fontWeight: FontWeight.w700,
+                                fontSize: 15.0,
+                                color: Colors.black),
+                          ),
+                          Text(
+                            "By ${_stories[index].by != null ? _stories[index].by : 'unknown'} - ${timeago.format(date)}",
+                            style: TextStyle(
+                                // fontWeight: FontWeight.w700,
+                                fontSize: 15.0,
+                                color: Colors.grey),
+                          ),
+                        ],
                       ),
                     ),
                     GestureDetector(
